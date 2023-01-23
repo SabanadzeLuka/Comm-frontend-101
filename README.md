@@ -4,6 +4,10 @@ This is a simple project to demonstrate the use of the following technologies:
 
 ### giorgi apkhadze
 
-#### 1. HTML
-#### 2. CSS
-#### 3. Javascript
+#### rame 1
+#### rame 2
+#### rame 3
+#### rame 1
+
+
+
