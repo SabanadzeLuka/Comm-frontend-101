@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Aldrich");
+
+@font-face {
+    font-family: "Apxo";
+    src: url("./Hind-Medium.ttf");
+}
+nav{
+    width: 1280px;
+    margin: 0 auto;
+}
+.box__layout{
+    width: 1280px;
+    margin: 0 auto;
+}
+img{
+    width: 100%;
+}
+.logo{
+    width: 78.08px;
+    height: 28.49px;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.nav_items ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+li{
+    font-family: "Apxo";
+}
+.btn{
+    width: 102px;
+    height: 51px;
+    border: 1px solid #6C63FF;
+    border-radius: 2px;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 14px;
+    color: #6C63FF;
+}
+.btn.full{
+    background-color: #6C63FF;
+    color: white;
+}
+.col-6{
+    width: 45%;
+}
+.header{
+    font-weight: 700;
+    font-size: 86px;
+    line-height: 88px;
+    letter-spacing: -1px;
+    color: #2F2E41;
+}
+.paragraph{
+    font-size: 20px;
+    line-height: 34px;
+    color: #9893A3;
+}
