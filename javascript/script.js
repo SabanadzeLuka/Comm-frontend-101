@@ -154,8 +154,8 @@ var numbers2 = [[0,1,2], [3,4,5]] // ორგანზომილებია�
 // 3,4,5
 
 var people=[
-    ["Tom", 25, false]
-    ["Alice", 22, true]
+    ["Tom", 25, false],
+    ["Alice", 22, true],
     ["Bob", 28, false]
 ]
-console.log(people[0])
+console.log(people)
