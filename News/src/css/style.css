@@ -79,7 +79,21 @@ button{
 }
 .blog_content_container{
     display: flex;
+    justify-content: center;
+
 }
+.flipper{
+    transform: scaleX(1);
+}
+.flipped_description{
+    transform: scaleX(1);
+}
+.flipper:nth-child(odd),
+.flipper:nth-child(odd) .flipped_description:nth-child(odd) {
+    transform: scaleX(-1);
+}
+
+
 .blog_desc_container{
     padding: 26px;
     width: 870px;
@@ -118,6 +132,9 @@ button{
     line-height: 28px;
     color: #3C3C3C;
 }
+.blog-content span p{
+    font-weight: bold;
+}
 .blog-content span{
     font-family: 'Lato';
     font-style: normal;
@@ -126,4 +143,27 @@ button{
     font-weight: bold;
     line-height: 28px;
     color: #000000;
+}
+.currentblogcontainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.readmore{
+    cursor: pointer;
+    width: 140px;
+    font-weight: bold;
+}
+.readmore .p{
+    color: black;
+    font-weight: bold;
+}
+.readmore:hover{
+    border-bottom: 1px solid black;
+}
+.readmore p:hover::after {
+    content: '\2192'; 
+    position: absolute;
+
 }

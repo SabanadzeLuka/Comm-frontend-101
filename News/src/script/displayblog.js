@@ -3,24 +3,19 @@ import {getDatabase , set , ref, get} from 'https://www.gstatic.com/firebasejs/9
 import {getAuth ,createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js';
 
 const firebaseConfig = {
-
-    apiKey: "AIzaSyAeJuScUZ2fEvlmQ51ay3nSGjZpRgHutgI",
-
-    authDomain: "comm101-6372b.firebaseapp.com",
-
-    projectId: "comm101-6372b",
-
-    storageBucket: "comm101-6372b.appspot.com",
-
-    messagingSenderId: "211097342745",
-
-    appId: "1:211097342745:web:189d0bed82e6bc01a5eb88"
-
-    };
+    apiKey: "AIzaSyAAylHkPAkFx3F2XKF7Ehq1yiarynsbWp8",
+    authDomain: "blog-6a2cd.firebaseapp.com",
+    databaseURL: "https://blog-6a2cd-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "blog-6a2cd",
+    storageBucket: "blog-6a2cd.appspot.com",
+    messagingSenderId: "412682685112",
+    appId: "1:412682685112:web:c0bee9208bcffc3efc824d"
+  };
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth(app);
 const token = localStorage.getItem('user');
+
 
 if(token){
     const blogDetails = document.getElementById('blogPost');
@@ -29,11 +24,13 @@ if(token){
             const data = snapshot.val();
             console.log(data);
             for (let key in data) {
+                const uid = key;
+                console.log(uid);
                 const blogName = data[key].blogName;
                 const blogContent = data[key].blogContent;
                 blogDetails.innerHTML += `
-                <div class="blog_content_container">
-                <div class="blog_desc_container">
+                <div class="blog_content_container flipper">
+                <div class="blog_desc_container flipped_description flipped_description1">
                     <div class="blog_nav">
                         <div class="icon">
                             <img src="./src/img/icons.svg">
@@ -45,12 +42,15 @@ if(token){
                     <div class="blog-content">
                         <h1>
                         ${blogName}
+                        
                         </h1>
                         <p>
                         ${blogContent}
                         </p>
-                        <span>
+                        <span class="readmore" data-uid="${uid}">
+                        <p>
                             Read more ...
+                            </p>
                         </span>
                     </div>
                     
@@ -60,6 +60,15 @@ if(token){
                 </div>
             </div>
                 `;
+                const readMoreElements = blogDetails.querySelectorAll(".readmore");
+                readMoreElements.forEach((readMoreElement) => {
+                  readMoreElement.addEventListener('click', () => {
+                    const clickedUID = readMoreElement.getAttribute('data-uid');
+                    console.log(clickedUID);
+                    window.open(`blog_dec.html?id=${clickedUID}`, '_blank');
+                  });
+                });
+                
             }
         } else {
             console.log("No data available");

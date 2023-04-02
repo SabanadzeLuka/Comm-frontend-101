@@ -3,20 +3,14 @@ import {getDatabase , set , ref, get} from 'https://www.gstatic.com/firebasejs/9
 import {getAuth ,createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js';
 
 const firebaseConfig = {
-
-    apiKey: "AIzaSyAeJuScUZ2fEvlmQ51ay3nSGjZpRgHutgI",
-
-    authDomain: "comm101-6372b.firebaseapp.com",
-
-    projectId: "comm101-6372b",
-
-    storageBucket: "comm101-6372b.appspot.com",
-
-    messagingSenderId: "211097342745",
-
-    appId: "1:211097342745:web:189d0bed82e6bc01a5eb88"
-
-    };
+    apiKey: "AIzaSyAAylHkPAkFx3F2XKF7Ehq1yiarynsbWp8",
+    authDomain: "blog-6a2cd.firebaseapp.com",
+    databaseURL: "https://blog-6a2cd-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "blog-6a2cd",
+    storageBucket: "blog-6a2cd.appspot.com",
+    messagingSenderId: "412682685112",
+    appId: "1:412682685112:web:c0bee9208bcffc3efc824d"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

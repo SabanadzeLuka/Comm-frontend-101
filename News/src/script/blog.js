@@ -3,20 +3,14 @@ import {getDatabase , set , ref, get} from 'https://www.gstatic.com/firebasejs/9
 import {getAuth ,createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js';
 import { getStorage  } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 const firebaseConfig = {
-
-    apiKey: "AIzaSyAeJuScUZ2fEvlmQ51ay3nSGjZpRgHutgI",
-
-    authDomain: "comm101-6372b.firebaseapp.com",
-
-    projectId: "comm101-6372b",
-
-    storageBucket: "comm101-6372b.appspot.com",
-
-    messagingSenderId: "211097342745",
-
-    appId: "1:211097342745:web:189d0bed82e6bc01a5eb88"
-
-    };
+    apiKey: "AIzaSyAAylHkPAkFx3F2XKF7Ehq1yiarynsbWp8",
+    authDomain: "blog-6a2cd.firebaseapp.com",
+    databaseURL: "https://blog-6a2cd-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "blog-6a2cd",
+    storageBucket: "blog-6a2cd.appspot.com",
+    messagingSenderId: "412682685112",
+    appId: "1:412682685112:web:c0bee9208bcffc3efc824d"
+  };
     const app = initializeApp(firebaseConfig);
     const storage = getStorage();
     const database = getDatabase(app);
@@ -26,31 +20,30 @@ const firebaseConfig = {
 if(token){
     const blogSubmit  = document.getElementById('createBlog');
     blogSubmit.addEventListener('click' , (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const blogName = document.getElementById('blogName').value;
         const blogContent = document.getElementById('blogDesc').value;
         const blogImg = document.getElementById('blogImg').value;
 
-        // set image to firebase storage
-        const storageRef = ref(storage, 'Blog/' + blogImg);
-        const file = document.getElementById('blogImg').files[0];
-        const task = uploadBytes(storageRef, file);
-        task.then((snapshot) => {
-            console.log('Uploaded a blob or file!');
-            localStorage.setItem('blogImg' , snapshot);
-        }
-        )
-        .catch((error) => {
-            console.log(error);
-        }
-        )
+        // // set image to firebase storage
+        // const storageRef = ref(storage, 'Blog/' + blogImg);
+        // const file = document.getElementById('blogImg').files[0];
+        // const task = uploadBytes(storageRef, file);
+        // task.then((snapshot) => {
+        //     console.log('Uploaded a blob or file!');
+        //     localStorage.setItem('blogImg' , snapshot);
+        // }
+        // )
+        // .catch((error) => {
+        //     console.log(error);
+        // }
+        // )
 
-        console.log(blogName , blogContent, blogImg);
+        // console.log(blogName , blogContent, blogImg);
       
         // random number generator
-        const uid = Math.floor(Math.
-        random() * 10
-        );
+        const uid = Math.floor(Math.random() * 100);
+
   
         set(ref(database, 'Blog/' + uid ), {
             blogName: blogName,
@@ -58,6 +51,7 @@ if(token){
         }) 
         .then(() => {
             alert('Data saved successfully!');
+            window.location.href = 'index.html';
         }
         )
         .catch((error) => {
